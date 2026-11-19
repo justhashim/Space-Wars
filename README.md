@@ -1,113 +1,29 @@
 # Space Wars
 
-**Space Wars** is a simple 2D space shooter game built using React.js and HTML5 Canvas. The player controls a spaceship to shoot bullets and avoid enemies while scoring points.
+A 2D arcade space shooter in React and HTML5 Canvas. Dodge rocks, shoot UFOs, survive.
 
----
+## What it does
 
-## Features
+- Start screen (Enter), game over screen, restart with `R`.
+- Move with the arrow keys, fire with Space or the up arrow.
+- Enemy ships and meteors spawn at random. Enemies shoot back.
+- Hitting an enemy ship, a meteor or an enemy bullet ends the run.
+- Score goes up every second you survive, and by 50 for each enemy you shoot.
+- Bullets and meteors have hit animations, and the background scrolls.
 
-- **Smooth Player Movement**: Use the arrow keys to move the spaceship left and right.
-- **Shooting Bullets**: Press the spacebar to fire bullets at enemies.
-- **Canvas Rendering**: The game is rendered using the HTML5 Canvas API for high-performance graphics.
-- **Responsive Design**: The game adjusts smoothly to different screen sizes.
+## Stack
 
----
+- React 19 (Create React App)
+- HTML5 Canvas
+- Sprites and fonts bundled in `src/assets` and `public/fonts`
 
-## Prerequisites
+## Run it locally
 
-Before you begin, ensure you have the following installed on your system:
-
-- [Node.js](https://nodejs.org/) (version 14.x or higher)
-- [npm](https://www.npmjs.com/) (comes with Node.js)
-
----
-
-## Installation
-
-1. **Clone the Repository**:
-
-   ```bash
-   git clone https://github.com/your-username/space-wars.git
-   cd space-wars
-   ```
-
-2. **Install Dependencies**:
-
-   ```bash
-   npm install
-   ```
-
-3. **Start the Development Server**:
-
-   ```bash
-   npm start
-   ```
-
-4. Open your browser and navigate to `http://localhost:3000` to play the game.
-
----
-
-## How to Play
-
-- **Move Left**: Press the left arrow key (`←`).
-- **Move Right**: Press the right arrow key (`→`).
-- **Shoot**: Press the spacebar (`Space`).
-- Avoid collisions with enemies to survive.
-
----
-
-## File Structure
-
-```plaintext
-space-wars/
-├── public/
-│   ├── index.html
-├── src/
-│   ├── assets/
-│   │   ├── player.png
-│   │   ├── laserGreen.png
-│   │   └── enemy.png
-│   ├── components/
-│   │   ├── GameCanvas.jsx
-│   │   ├── Player.jsx
-│   │   ├── Bullet.jsx
-│   │   └── Enemy.jsx
-│   ├── App.jsx
-│   ├── style.css
-│   └── index.js
-├── .gitignore
-├── package.json
-├── README.md
-└── package-lock.json
+```bash
+npm install
+npm start    # http://localhost:3000
 ```
 
----
+## Notes
 
-## Technologies Used
-
-- **React.js**: A JavaScript library for building the user interface.
-- **HTML5 Canvas**: For rendering 2D graphics.
-- **CSS**: For styling the game interface.
-
----
-
-## Future Enhancements
-
-- Add enemy ships that spawn dynamically.
-- Implement collision detection between bullets and enemies.
-- Add a scoring system to track the player's progress.
-- Create levels with increasing difficulty.
-- Add background music and sound effects.
-
----
-
-## Acknowledgments
-
-- Inspired by classic space shooter arcade games.
-- Built with React and love for web development.
-
----
-
-## Contributing
-
-Contributions are welcome! Feel free to open issues or submit pull requests to improve the game.
+Early project. Collision detection is plain bounding boxes in `src/utils/isCollision.jsx`, and game state lives in one large component (`src/app.jsx`). It imports `lodash/fp`, which is not listed in `package.json` and only resolves through Create React App's own dependencies. No score persistence, no sound, no levels.
